@@ -1,7 +1,7 @@
 {
   "name": "golden-green-fc",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Official website for Golden Green Sporting Club",
   "scripts": {
     "preview": "python3 -m http.server 8765",

@@ -27,8 +27,9 @@
       <a href="#about">Club</a>
       <a href="#spirit">Spirit</a>
       <a href="#connect">Connect</a>
+      <a href="#collaborate">Collaborate</a>
     </nav>
-    <span class="version-pill" title="Deployment version" data-version>v1.0.1</span>
+    <span class="version-pill" title="Deployment version" data-version>v1.0.2</span>
   </header>
 
   <main id="main">
@@ -125,6 +126,60 @@
         </li>
       </ul>
     </section>
+
+    <section class="section collaborate" id="collaborate">
+      <p class="eyebrow">Work with us</p>
+      <h2>Collaborate with Golden Green</h2>
+      <p class="section-lead">
+        Sponsors, community partners, schools, and fellow clubs — we welcome serious proposals that lift the squad and the neighbourhood around it.
+      </p>
+      <div class="collaborate-grid">
+        <ul class="collaborate-pillars">
+          <li>
+            <h3>Sponsorship</h3>
+            <p>Kit, match-day, and training support that puts your brand beside a crest people trust.</p>
+          </li>
+          <li>
+            <h3>Community</h3>
+            <p>Joint programmes with schools, charities, and local groups that keep football open and useful.</p>
+          </li>
+          <li>
+            <h3>Club partnerships</h3>
+            <p>Friendlies, shared facilities, coaching exchanges, and cross-club initiatives.</p>
+          </li>
+        </ul>
+        <form class="collaborate-form" id="collaborateForm" novalidate>
+          <div class="form-group">
+            <label for="collabName">Name</label>
+            <input type="text" id="collabName" name="name" placeholder="Your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="collabOrg">Organisation</label>
+            <input type="text" id="collabOrg" name="organisation" placeholder="Club, school, brand, or community group" autocomplete="organization" />
+          </div>
+          <div class="form-group">
+            <label for="collabEmail">Email</label>
+            <input type="email" id="collabEmail" name="email" placeholder="you@example.org" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="collabType">Collaboration type</label>
+            <select id="collabType" name="type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="sponsorship">Sponsorship</option>
+              <option value="community">Community partnership</option>
+              <option value="club">Club partnership</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="collabMessage">How would you like to collaborate?</label>
+            <textarea id="collabMessage" name="message" rows="4" placeholder="Briefly describe your idea, timing, and what you hope to build with Golden Green." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold">Send collaboration enquiry</button>
+          <p class="form-status" id="collaborateFormStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -133,7 +188,7 @@
       <p class="footer-brand">Golden Green Sporting Club</p>
       <p class="footer-motto">Dream Big, Do More · Est. 2012</p>
     </div>
-    <p class="footer-meta">Site <span data-version>v1.0.1</span></p>
+    <p class="footer-meta">Site <span data-version>v1.0.2</span></p>
   </footer>
 
   <script src="script.js"></script>
