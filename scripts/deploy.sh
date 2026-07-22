@@ -28,10 +28,16 @@ if [[ ! -d .git ]]; then
 fi
 
 # Remotes (username-only URLs; tokens via askpass / env)
-git remote remove origin 2>/dev/null || true
-git remote remove hf 2>/dev/null || true
-git remote add origin "https://${GH_USER}@github.com/${GH_USER}/${REPO_NAME}.git"
-git remote add hf "https://${HF_USER}@huggingface.co/spaces/${HF_USER}/${REPO_NAME}"
+if git remote get-url origin >/dev/null 2>&1; then
+  git remote set-url origin "https://${GH_USER}@github.com/${GH_USER}/${REPO_NAME}.git"
+else
+  git remote add origin "https://${GH_USER}@github.com/${GH_USER}/${REPO_NAME}.git"
+fi
+if git remote get-url hf >/dev/null 2>&1; then
+  git remote set-url hf "https://${HF_USER}@huggingface.co/spaces/${HF_USER}/${REPO_NAME}"
+else
+  git remote add hf "https://${HF_USER}@huggingface.co/spaces/${HF_USER}/${REPO_NAME}"
+fi
 
 askpass_script="$(mktemp)"
 trap 'rm -f "$askpass_script"' EXIT

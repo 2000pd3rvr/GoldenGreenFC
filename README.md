@@ -12,7 +12,7 @@ short_description: Golden Green Sporting Club — Dream Big, Do More (Est. 2012)
 
 # Golden Green Sporting Club
 
-**Version:** 1.0.0
+**Version:** 1.0.1
 
 Official club website for **Golden Green Sporting Club** — motto *Dream Big, Do More*, established **2012**.
 
