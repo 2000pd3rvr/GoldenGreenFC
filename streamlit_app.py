@@ -1,89 +1,31 @@
 #!/usr/bin/env python3
-"""Golden Green SC — Streamlit Community Cloud app (GitHub-connected)."""
+"""Golden Green SC — live club site on Streamlit Community Cloud."""
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import streamlit as st
-import streamlit.components.v1 as components
+
+from streamlit_static import render_live_site
+
+HTML = Path(__file__).resolve().parent / "index.html"
 
 st.set_page_config(
     page_title="Golden Green SC · Deborah Akuoko Minka",
     page_icon="⚽",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
-HF_URL = "https://huggingface.co/spaces/0001AMA/GoldenGreenFC"
-HF_EMBED = "https://0001AMA-GoldenGreenFC.hf.space"
-GH_URL = "https://github.com/2000pd3rvr/GoldenGreenFC"
-WP_URL = "https://deborahakuokominka.wordpress.com/"
-ORCID = "https://orcid.org/0009-0008-6219-154X"
-SCHOLAR = "https://scholar.google.co.uk/citations?hl=en&user=ab0EyjYAAAAJ"
+ABOUT = """
+**Golden Green Sporting Club** — Dream Big, Do More. Public club identity and messaging.
 
-st.title("Golden Green Sporting Club")
-st.subheader("Dream Big, Do More")
-st.caption("Deborah Akuoko Minka · Deborah Akuoko-Minka")
+- **Live on Streamlit:** this page
+- **Source:** [github.com/2000pd3rvr/GoldenGreenFC](https://github.com/2000pd3rvr/GoldenGreenFC)
+- **Also on Hugging Face:** [0001AMA/GoldenGreenFC](https://huggingface.co/spaces/0001AMA/GoldenGreenFC)
+- **Author:** Deborah Akuoko Minka / Deborah Akuoko-Minka
+- [Research site](https://deborahakuokominka.wordpress.com/) · [ORCID](https://orcid.org/0009-0008-6219-154X)
+"""
 
-b1, b2, b3, b4 = st.columns(4)
-b1.link_button("Live club site", HF_URL, use_container_width=True)
-b2.link_button("Source on GitHub", GH_URL, use_container_width=True)
-b3.link_button("Research site", WP_URL, use_container_width=True)
-b4.link_button("ORCID", ORCID, use_container_width=True)
-
-st.markdown("---")
-left, right = st.columns([1.25, 1])
-
-with left:
-    st.header("What it is")
-    st.write(
-        "Golden Green SC is the public website for Golden Green Sporting Club. It carries "
-        "the club’s identity, messaging, and a simple online presence that members and "
-        "visitors can open without an account. The live site is hosted as a Hugging Face "
-        "Space; this Streamlit app is connected to the same GitHub repository."
-    )
-
-    st.header("What you can do")
-    st.markdown(
-        """
-- Read the club’s introduction and public messaging
-- See brand assets and club visual identity
-- Share a stable public URL for the club site
-- Track changes through the GitHub repository
-        """
-    )
-
-    st.header("Who it is for")
-    st.write(
-        "Club members, families, local visitors, and anyone searching for Golden Green "
-        "Sporting Club online."
-    )
-
-    st.header("How it is built")
-    st.markdown(
-        f"""
-- **Live app:** [Hugging Face Space — 0001AMA/GoldenGreenFC]({HF_URL})
-- **Source:** [{GH_URL}]({GH_URL})
-- **Stack:** Static HTML, CSS, and JavaScript
-- **Author:** Deborah Akuoko Minka (also written Deborah Akuoko-Minka)
-        """
-    )
-
-    st.header("Related links")
-    st.markdown(
-        f"""
-- [WordPress research site]({WP_URL})
-- [ORCID]({ORCID})
-- [Google Scholar]({SCHOLAR})
-        """
-    )
-
-with right:
-    st.header("Preview")
-    st.write("Embedded view of the live Space. If the frame is empty, open the live club site link above.")
-    components.iframe(HF_EMBED, height=720, scrolling=True)
-
-st.markdown("---")
-st.caption(
-    "Deborah Akuoko Minka · public sites and applied demos · "
-    f"[deborahakuokominka.wordpress.com]({WP_URL})"
-)
+render_live_site(HTML, height=960, about_title="About Golden Green SC", about_md=ABOUT)
